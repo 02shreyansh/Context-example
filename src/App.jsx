@@ -1,11 +1,17 @@
-import Login from "./Components/Login"
-import Profile from "./Components/Profile"
-import UserContextProvider from "./Context/UserContextProvider"
+
+import { useState } from "react"
+import Login from "./Component/Login"
+import Profile from "./Component/Profile"
+import { UserContextProvider } from "./Context/UserContext"
+
 
 function App() {
+  const [user,setUser]=useState("");
+  const setUserr=(newUser)=>{
+    setUser(newUser)
+  }
   return (
-    <UserContextProvider>
-      <h1 className="bg-red-600">Hello</h1>
+    <UserContextProvider value={{user,setUserr}}>
       <Login/>
       <Profile/>
     </UserContextProvider>
